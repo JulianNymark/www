@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc -p . && node build/main.js",
+    "build_dirs": "mkdir -p ./build/gen_md2html",
+    "start": "tsc -p . && node build/main.js && cp -r ./src/css ./build/gen_md2html/",
     "dev": "nodemon -w src -e md,ts,css --exec \"npm run start && npm run rsync\"",
-    "rsync": "rsync ~/Repos/www/coolthings/build/index.html juliannymark.com:~/www/coolthings/"
+    "rsync": "rsync -Pavz ~/Repos/www/coolthings/build/gen_md2html/* juliannymark.com:~/www/coolthings/"
   },
   "keywords": [],
   "author": "",

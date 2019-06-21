@@ -1,4 +1,5 @@
 import * as fs from 'fs'
+import * as path from 'path'
 import * as Markdown from 'markdown-it'
 //@ts-ignore
 import * as abbr from 'markdown-it-abbr'
@@ -38,26 +39,36 @@ const markdownToHTML = (filepath: string): string => {
     return markdown.render(filetext.toString());
 }
 
-const renderedHTML = markdownToHTML('./src/markdown/index.md');
+const templateDocument = (inputHTML: string) => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Cool stuff!</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/custom.css">
+    </head>
+    
+    <body>
+    ${inputHTML}
+    </body>
+    
+    </html>
+    `;
+}
 
-const outputHtml = `
-<!DOCTYPE html>
-<html lang="en">
+fs.mkdirSync('./build/gen_md2html', { recursive: true })
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cool stuff!</title>
-    <style>${bootstrapCSS}</style>
-    <style>${customCSS}</style>
-</head>
-
-<body>
-${renderedHTML}
-</body>
-
-</html>
-`;
-
-fs.writeFileSync('./build/gen_md2html/index.html', outputHtml);
+fs.readdir('./src/markdown/', (err, files) => {
+    files.forEach(fileOrig => {
+        const file = path.basename(fileOrig, '.md');
+        console.log('FILE: ', file, ' .md');
+        const renderedHTML = markdownToHTML(`./src/markdown/${fileOrig}`);
+        const outputHTML = templateDocument(renderedHTML);
+        fs.writeFileSync(`./build/gen_md2html/${file}.html`, outputHTML);
+    });
+});
