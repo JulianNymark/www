@@ -1,0 +1,19 @@
+{
+  "name": "coolthings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc -p . && node build/main.js",
+    "dev": "nodemon -w src -e md,ts --exec \"npm run start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/markdown-it": "0.0.7",
+    "@types/node": "^12.0.8",
+    "markdown-it": "^8.4.2",
+    "nodemon": "^1.19.1"
+  }
+}
