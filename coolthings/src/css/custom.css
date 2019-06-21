@@ -1,0 +1,19 @@
+html {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    height: 100%;
+}
+body {
+    flex: 1;
+    max-width: 800px;
+    padding: 40px;
+}
+.header-anchor {
+    opacity: 0;
+    text-decoration: none;
+}
+.header-anchor:hover {
+    opacity: 1;
+    text-decoration: none;
+}

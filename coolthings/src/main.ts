@@ -1,5 +1,17 @@
 import * as fs from 'fs'
 import * as Markdown from 'markdown-it'
+//@ts-ignore
+import * as abbr from 'markdown-it-abbr'
+//@ts-ignore
+import * as defList from 'markdown-it-deflist'
+//@ts-ignore
+import * as anchor from 'markdown-it-anchor'
+//@ts-ignore
+import * as footnote from 'markdown-it-footnote'
+//@ts-ignore
+import * as sub from 'markdown-it-sub'
+//@ts-ignore
+import * as sup from 'markdown-it-sup'
 
 const markdown = new Markdown.default({
     html: true,
@@ -7,27 +19,26 @@ const markdown = new Markdown.default({
     typographer: true,
 });
 
-const bootstrapCSS = fs.readFileSync('./src/bootstrap.css');
+markdown.use(abbr.default);
+markdown.use(defList.default);
+markdown.use(anchor.default, {
+    level: 1,
+    permalink: true,
+    permalinkBefore: false
+});
+markdown.use(footnote.default);
+markdown.use(sup.default);
+markdown.use(sub.default);
 
-const convertFile = (filepath: string): string => {
+const bootstrapCSS = fs.readFileSync('./src/css/bootstrap.css');
+const customCSS = fs.readFileSync('./src/css/custom.css');
+
+const markdownToHTML = (filepath: string): string => {
     const filetext = fs.readFileSync(filepath);
     return markdown.render(filetext.toString());
 }
 
-const markdownHTML = convertFile('./src/markdown/index.md');
-
-const customCSS = `
-html {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-}
-body {
-    flex: 1;
-    min-width: 600px;
-    max-width: 800px;
-}
-`;
+const renderedHTML = markdownToHTML('./src/markdown/index.md');
 
 const outputHtml = `
 <!DOCTYPE html>
@@ -43,10 +54,10 @@ const outputHtml = `
 </head>
 
 <body>
-${markdownHTML}
+${renderedHTML}
 </body>
 
 </html>
 `;
 
-fs.writeFileSync('./build/index.html', outputHtml);
+fs.writeFileSync('./build/gen_md2html/index.html', outputHtml);
