@@ -1,0 +1,29 @@
+{
+  "name": "coolthings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build_dirs": "mkdir -p ./build/gen_md2html",
+    "start": "tsc -p . && node build/main.js && cp -r ./src/css ./build/gen_md2html/",
+    "dev": "nodemon -w src -e md,ts,css --exec \"npm run start && npm run rsync\"",
+    "rsync": "rsync -Pavz ~/Repos/www/coolthings/build/gen_md2html/* juliannymark.com:~/www/coolthings/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/highlight.js": "^9.12.3",
+    "@types/markdown-it": "0.0.7",
+    "@types/node": "^12.0.8",
+    "highlight.js": "^9.15.8",
+    "markdown-it": "^8.4.2",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-anchor": "^5.2.4",
+    "markdown-it-deflist": "^2.0.3",
+    "markdown-it-footnote": "^3.0.1",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "nodemon": "^1.19.1"
+  }
+}
