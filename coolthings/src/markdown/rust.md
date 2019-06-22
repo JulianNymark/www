@@ -2,12 +2,14 @@
 
 ## creating your first program
 
-```shell
+run:
+
+```bash
 cargo new helloworld
 cd helloworld
 ```
 
-open a file, and enter the following:
+open a file called `src/main.rs`, and enter the following:
 
 ```rust
 fn main() {
@@ -15,6 +17,8 @@ fn main() {
 }
 ```
 
-```shell
+run: 
+
+```bash
 cargo run
 ```
