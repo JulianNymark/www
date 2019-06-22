@@ -6,14 +6,15 @@ import * as abbr from 'markdown-it-abbr'
 //@ts-ignore
 import * as defList from 'markdown-it-deflist'
 //@ts-ignore
-import * as anchor from 'markdown-it-anchor'
+// import * as anchor from 'markdown-it-anchor'
 //@ts-ignore
 import * as footnote from 'markdown-it-footnote'
 //@ts-ignore
 import * as sub from 'markdown-it-sub'
 //@ts-ignore
 import * as sup from 'markdown-it-sup'
-// import revealjs from 'markdown-it-revealjs'
+//@ts-ignore
+import * as revealjs from 'markdown-it-revealjs'
 import hljs from 'highlight.js'
 
 //@ts-ignore
@@ -37,47 +38,49 @@ const markdown = new Markdown.default({
 
 markdown.use(abbr.default);
 markdown.use(defList.default);
-markdown.use(anchor.default, {
+/* markdown.use(anchor.default, {
     level: 1,
     permalink: true,
     permalinkBefore: false
 });
+ */
 markdown.use(footnote.default);
 markdown.use(sup.default);
 markdown.use(sub.default);
-
-const bootstrapCSS = fs.readFileSync('./src/css/bootstrap.css');
-const customCSS = fs.readFileSync('./src/css/custom.css');
+markdown.use(revealjs.default);
 
 const markdownToHTML = (filepath: string): string => {
     const filetext = fs.readFileSync(filepath);
     return markdown.render(filetext.toString());
 }
 
+/*
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+*/
+
 const templateDocument = (inputHTML: string) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Cool stuff!</title>
+        <title>Presentation</title>
 
-        <style>html{visibility:hidden;opacity:0;}</style>
-        <link rel="preload" href="css/bootstrap.css" as="style">
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
         <link rel="stylesheet" href="css/monokai.css">
         <link rel="stylesheet" href="css/custom.css">
-        <link rel="stylesheet" href="css/htmlvisible.css">
-
-    </head>
-    
+	</head>
     <body>
-    ${inputHTML}
-    </body>
-    
+        ${inputHTML}
+		<script src="js/reveal.js"></script>
+		<script>
+			Reveal.initialize();
+		</script>
+	</body>
     </html>
     `;
 }

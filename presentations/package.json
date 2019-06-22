@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build_dirs": "mkdir -p ./build/gen_md2html",
-    "start": "tsc -p . && node build/main.js && cp -r ./src/css ./build/gen_md2html/",
+    "start": "tsc -p . && node build/main.js && cp -r ./static/* ./build/gen_md2html/",
+    "dev-local": "nodemon -w src -e md,ts,css --exec \"npm run start\"",
     "dev": "nodemon -w src -e md,ts,css --exec \"npm run start && npm run rsync\"",
-    "rsync": "rsync -Pavz ~/Repos/www/coolthings/build/gen_md2html/* juliannymark.com:~/www/coolthings/"
+    "rsync": "rsync -Pavz ~/Repos/www/presentations/build/gen_md2html/* bloggah:~/www/presentations/"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "markdown-it-anchor": "^5.2.4",
     "markdown-it-deflist": "^2.0.3",
     "markdown-it-footnote": "^3.0.1",
+    "markdown-it-revealjs": "^1.0.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
     "nodemon": "^1.19.1"
