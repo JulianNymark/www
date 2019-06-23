@@ -4,8 +4,6 @@
 
 Imagine you could simply jot down a bit of markdown, and have both cool website pages & presentations generated from them! (using the power of `markdown-it` and a heap of plugins to empower the markdown syntax!). It creates presentations using `revealjs` (and the `markdown-it-revealjs` plugin) and even generates diagrams and charts using `mermaidjs`... NEAT!
 
----
-
 ## project pipeline:
 
 ![`nodemon (filewatcher)` -> `tsc` -> `js (node)` -> `gen static pages` -> `rsync to the clouds!`](README/pipeline.png)
