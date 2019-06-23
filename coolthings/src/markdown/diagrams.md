@@ -47,3 +47,15 @@ gantt
         Create tests for renderer           :2d
         Add to mermaid                      :1d
 </div>
+
+<div class="mermaid">
+    graph LR
+    A[nodemon filewatcher] --> B(tsc)
+    B --> C[JS / node]
+    C --> E[static pages]
+    E --> F[fa:fa-cloud webserver]
+    B --> |npm start| E
+    A-->|npm run dev-local| E
+    A -->|npm run dev| F
+    E -->|npm run rsync|F
+</div>
