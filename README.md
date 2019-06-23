@@ -42,4 +42,4 @@ A. I wanted to keep each new "use case" (defined roughly by how _different_ the 
 
 Q. "the diagrams don't look super pretty OOTB?! (mermaid diagrams)"
 
-A. Yeah, it was a bit of a struggle! (and it's a bit hacky what I've done to get `mermaidjs` to work, _especially_ in conjunction with `revealjs`)... see `src/static/css/custom.css`. also look into the `<script>` in the html template for the `presentations` directory. Maybe you might have better luck messing around with those! :)
+A. Yeah, it was a bit of a struggle! (and it's a bit hacky what I've done to get `mermaidjs` to work, _especially_ in conjunction with `revealjs`)... see `src/static/css/custom.css`. also look into the `<script>` in the html template for the `presentations` directory. You might have better luck messing around with those! :)
