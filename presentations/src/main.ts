@@ -33,6 +33,8 @@ enum theme {
     WHITE = "white",
 }
 
+const selectedTheme = theme.LEAGUE;
+
 //@ts-ignore
 const markdown = new Markdown.default({
     html: true,
@@ -86,7 +88,7 @@ const templateDocument = (inputHTML: string) => {
         <title>Presentation</title>
 
         <link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/${theme.LEAGUE}.css">
+		<link rel="stylesheet" href="css/theme/${selectedTheme}.css">
 
         <link rel="stylesheet" href="css/monokai.css">
         <link rel="stylesheet" href="css/custom.css">
