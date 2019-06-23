@@ -29,14 +29,8 @@ test^squared^
 test~squbbed~
  -->
 
-# test checklist
-- [x] checked!
-- [ ] unchecked!
+# cool links
+- [rust](./rust.html)
+- [checklist](./checklist.html)
+- [diagrams](./diagrams.html)
 
-# test diagram (mermaid)
-<div class="mermaid">
-  graph LR
-      A --- B
-      B-->C[fa:fa-ban forbidden]
-      B-->D(fa:fa-spinner);
-</div>
