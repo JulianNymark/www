@@ -14,5 +14,5 @@
 - [x] mermaid (diagrams)
 - [x] rsync to the clouds!
 - [ ] emojis
-- [ ] proper README
+- [x] proper README
 

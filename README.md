@@ -2,7 +2,7 @@
 
 > "I want to broadcast my thoughts and _cool stuff_ to the world!" - everybody
 
-Imagine you could simply jot down a bit of markdown, and have both cool website pages & presentations generated from them! (using the power of `markdown-it` and a heap of plugins to empower the markdown syntax!). It creates presentations using `revealjs` (and the `markdown-it-revealjs` plugin) even generate diagrams and charts using `mermaidjs`... neat!
+Imagine you could simply jot down a bit of markdown, and have both cool website pages & presentations generated from them! (using the power of `markdown-it` and a heap of plugins to empower the markdown syntax!). It creates presentations using `revealjs` (and the `markdown-it-revealjs` plugin) and even generates diagrams and charts using `mermaidjs`... NEAT!
 
 ---
 
