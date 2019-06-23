@@ -6,8 +6,6 @@ Imagine you could simply jot down a bit of markdown, and have both cool website 
 
 ---
 
-In efforts to create a "simple" setup for quickly writing something down, and having it presented to the entire world to see! (and have it look _relatively_ nice in terms of styling, without spending too much time on the style & layout). I've put togethere this repo!
-
 ## project pipeline:
 
 ![`nodemon (filewatcher)` -> `tsc` -> `js (node)` -> `gen static pages` -> `rsync to the clouds!`](README/pipeline.png)
