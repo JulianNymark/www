@@ -15,8 +15,6 @@ import * as sub from 'markdown-it-sub'
 import * as sup from 'markdown-it-sup'
 //@ts-ignore
 import * as checkbox from 'markdown-it-checkbox';
-// import * as tasklists from 'markdown-it-task-lists';
-// import revealjs from 'markdown-it-revealjs'
 import hljs from 'highlight.js'
 
 //@ts-ignore
@@ -69,14 +67,17 @@ const templateDocument = (inputHTML: string) => {
         <style>html{visibility:hidden;opacity:0;}</style>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/monokai.css">
+        <link rel="stylesheet" href="css/mermaid.css">
+        <link rel="stylesheet" href="css/fa-all.css">
         <link rel="stylesheet" href="css/custom.css">
         <link rel="stylesheet" href="css/htmlvisible.css">
     </head>
     
     <body>
     ${inputHTML}
+        <script src="js/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
     </body>
-    
     </html>
     `;
 }
