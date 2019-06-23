@@ -17,6 +17,8 @@ import * as sup from 'markdown-it-sup'
 import * as revealjs from 'markdown-it-revealjs'
 //@ts-ignore
 import * as checkbox from 'markdown-it-checkbox';
+//@ts-ignore
+import * as mermaid from 'markdown-it-mermaid';
 import hljs from 'highlight.js'
 
 enum theme {
@@ -67,6 +69,7 @@ markdown.use(sup.default);
 markdown.use(sub.default);
 markdown.use(revealjs.default);
 markdown.use(checkbox.default);
+markdown.use(mermaid.default);
 
 const markdownToHTML = (filepath: string): string => {
     const filetext = fs.readFileSync(filepath);
@@ -91,6 +94,10 @@ const templateDocument = (inputHTML: string) => {
 		<link rel="stylesheet" href="css/theme/${selectedTheme}.css">
 
         <link rel="stylesheet" href="css/monokai.css">
+
+        <link rel="stylesheet" href="css/mermaid.css">
+        <link rel="stylesheet" href="css/fa-all.css">
+
         <link rel="stylesheet" href="css/custom.css">
 	</head>
     <body>
@@ -98,7 +105,33 @@ const templateDocument = (inputHTML: string) => {
 		<script src="js/reveal.js"></script>
 		<script>
 			Reveal.initialize();
-		</script>
+        </script>
+
+        <script src="js/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({
+                startOnLoad:false
+            });
+            mermaidAPI.initialize({
+                startOnLoad:false
+            });
+        </script>
+
+        <script>
+            Reveal.addEventListener( 'slidechanged', function( event ) {
+                // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+                // mermaid.init();
+                // Example of using the API
+                var element = document.querySelector(".mermaid");
+
+                var insertSvg = function(svgCode, bindFunctions){
+                    element.innerHTML = svgCode;
+                };
+
+                var graphDefinition = element.innerText;
+                var graph = mermaidAPI.render('graphDiv', graphDefinition, insertSvg);
+            } );
+        </script>
 	</body>
     </html>
     `;

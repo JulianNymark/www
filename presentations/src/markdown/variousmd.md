@@ -52,6 +52,8 @@ console.log('oof');
 test^squared^
 test~squbbed~
  -->
+
+ ---
  
  <section data-markdown>
   ## Markdown support
@@ -59,3 +61,13 @@ test~squbbed~
   Write content using inline or external Markdown.
   Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
 </section>
+
+---
+
+#### Diagrams
+<div class="mermaid">
+  graph LR;
+      A --- B;
+      B-->C[fa:fa-ban forbidden];
+      B-->D(fa:fa-spinner);
+</div>
