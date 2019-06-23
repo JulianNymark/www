@@ -13,6 +13,9 @@ import * as footnote from 'markdown-it-footnote'
 import * as sub from 'markdown-it-sub'
 //@ts-ignore
 import * as sup from 'markdown-it-sup'
+//@ts-ignore
+import * as checkbox from 'markdown-it-checkbox';
+// import * as tasklists from 'markdown-it-task-lists';
 // import revealjs from 'markdown-it-revealjs'
 import hljs from 'highlight.js'
 
@@ -45,6 +48,7 @@ markdown.use(anchor.default, {
 markdown.use(footnote.default);
 markdown.use(sup.default);
 markdown.use(sub.default);
+markdown.use(checkbox.default);
 
 const markdownToHTML = (filepath: string): string => {
     const filetext = fs.readFileSync(filepath);

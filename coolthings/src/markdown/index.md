@@ -28,3 +28,7 @@
 test^squared^
 test~squbbed~
  -->
+
+# test checklist
+- [x] checked!
+- [ ] unchecked!
