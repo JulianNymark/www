@@ -15,7 +15,23 @@ import * as sub from 'markdown-it-sub'
 import * as sup from 'markdown-it-sup'
 //@ts-ignore
 import * as revealjs from 'markdown-it-revealjs'
+//@ts-ignore
+import * as checkbox from 'markdown-it-checkbox';
 import hljs from 'highlight.js'
+
+enum theme {
+    BEIGE = "beige",
+    BLACK = "black",
+    BLOOD = "blood",
+    LEAGUE = "league",
+    MOON = "moon",
+    NIGHT = "night",
+    SERIF = "serif",
+    SIMPLE = "simple",
+    SKY = "sky",
+    SOLARIZED = "solarized",
+    WHITE = "white",
+}
 
 //@ts-ignore
 const markdown = new Markdown.default({
@@ -48,6 +64,7 @@ markdown.use(footnote.default);
 markdown.use(sup.default);
 markdown.use(sub.default);
 markdown.use(revealjs.default);
+markdown.use(checkbox.default);
 
 const markdownToHTML = (filepath: string): string => {
     const filetext = fs.readFileSync(filepath);
@@ -55,10 +72,6 @@ const markdownToHTML = (filepath: string): string => {
 }
 
 /*
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
         <link rel="stylesheet" href="css/bootstrap.css">
 */
 
@@ -66,10 +79,14 @@ const templateDocument = (inputHTML: string) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
         <title>Presentation</title>
 
         <link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/theme/${theme.LEAGUE}.css">
 
         <link rel="stylesheet" href="css/monokai.css">
         <link rel="stylesheet" href="css/custom.css">

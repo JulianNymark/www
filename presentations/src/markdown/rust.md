@@ -1,8 +1,7 @@
 # RUST
 
 ## creating your first program
-
-### (it's ezpz)
+#### (it's ezpz)
 
 ---
 
@@ -30,3 +29,8 @@ run:
 ```bash
 cargo run
 ```
+
+---
+
+- [x] success!
+- [ ] next steps?

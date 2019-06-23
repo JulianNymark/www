@@ -21,6 +21,7 @@
     "markdown-it": "^8.4.2",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-anchor": "^5.2.4",
+    "markdown-it-checkbox": "^1.1.0",
     "markdown-it-deflist": "^2.0.3",
     "markdown-it-footnote": "^3.0.1",
     "markdown-it-revealjs": "^1.0.0",
