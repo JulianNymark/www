@@ -30,7 +30,13 @@ test~squbbed~
  -->
 
 # cool links
+
+## langs
 - [rust](./rust.html)
+- [elm](./elm.html)
+## other
 - [checklist](./checklist.html)
 - [diagrams](./diagrams.html)
-
+- [3dprinting](./3dprinting.html)
+- [chess](./chess.html)
+- [salt and pepper](static/img/salt_and_pepper.jpeg)

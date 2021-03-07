@@ -15,6 +15,8 @@ import * as sub from 'markdown-it-sub'
 import * as sup from 'markdown-it-sup'
 //@ts-ignore
 import * as checkbox from 'markdown-it-checkbox';
+//@ts-ignore
+import emoji from 'markdown-it-emoji';
 import hljs from 'highlight.js'
 
 //@ts-ignore
@@ -47,6 +49,7 @@ markdown.use(footnote.default);
 markdown.use(sup.default);
 markdown.use(sub.default);
 markdown.use(checkbox.default);
+markdown.use(emoji);
 
 const markdownToHTML = (filepath: string): string => {
     const filetext = fs.readFileSync(filepath);
