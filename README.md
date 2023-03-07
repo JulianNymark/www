@@ -1,3 +1,6 @@
+| :exclamation:  This repository is quite outdated by modern standards, today it would use a mainstream web framework   |
+|-|
+
 # WWW
 
 > "I want to broadcast my thoughts and _cool stuff_ to the world!" - everybody
